@@ -1,0 +1,20 @@
+<launch>
+  <node
+    pkg="vosk_ros"
+    type="vosk_pub.py"
+    name="vosk_pub"
+    output="screen"
+  />
+  <node
+    pkg="vosk_ros"
+    type="vosk_sub.py"
+    name="vosk_sub"
+    output="screen"
+  />
+    <node
+    pkg="vosk_ros"
+    type="actions.py"
+    name="action_sub"
+    output="screen"
+  />
+</launch>

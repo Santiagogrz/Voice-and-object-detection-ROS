@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/santiago/vosk_ros/install/setup.sh

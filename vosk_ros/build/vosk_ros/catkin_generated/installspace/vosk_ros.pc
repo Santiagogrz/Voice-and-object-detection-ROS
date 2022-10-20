@@ -1,0 +1,8 @@
+prefix=/home/santiago/vosk_ros/install
+
+Name: vosk_ros
+Description: Description of vosk_ros
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
