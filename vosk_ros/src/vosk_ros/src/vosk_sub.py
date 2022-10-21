@@ -61,6 +61,8 @@ def callback(mensaje):
                 accion()
             elif 'frente' in mensaje.data:
                 nombrar_objetos()
+            else:
+                pass
 
         elif 'nombre' in mensaje.data:
             nombre()
