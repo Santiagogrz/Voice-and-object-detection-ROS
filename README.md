@@ -1,4 +1,4 @@
-# Voice_and_object_detection_ROS
+# Voice and object detection ROS
 hola
 
 ```python
