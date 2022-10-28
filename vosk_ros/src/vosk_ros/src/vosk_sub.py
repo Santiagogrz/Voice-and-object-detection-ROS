@@ -16,7 +16,7 @@ from nltk.tokenize import word_tokenize
 from sensor_msgs.msg import Image 
 import pyttsx3
 from datetime import datetime
-
+import playsound
 name = "kelso"
 pub = rospy.Publisher('actions', String, queue_size=10) #Definimos nuestro topico con nombre example y tipo de mensaje String
 
@@ -35,14 +35,17 @@ def hora():
     speak(str(now.hour))    
     speak(str(now.minute))
 
+def reproducir_sonido():
+    playsound.playsound('/home/santiago/Descargas/ladrido.mp3')
 
 def nombre():
     speak("Hello, my name is kelso")
 
-def accion():
+def accion(action):
     speak("Executing action")
-    pub.publish("ORDEN DE EJECUTAR ACCION")                                #Publicamos un mensaje de tipo String en nuestro tópico example 
+    pub.publish(action)                                
 
+    #se envian los caracteres para buscar en los diccionarios ya establecidos
 
 def callback(mensaje):
     
@@ -57,12 +60,20 @@ def callback(mensaje):
                 saludo()
             elif 'hora' in mensaje.data:
                 hora()
+            elif 'adelante' in mensaje.data:
+                accion('i')
             elif 'derecha' in mensaje.data:
-                accion()
+                accion("l")
+            elif 'izquierda' in mensaje.data:
+                accion("j")
+            elif 'atrás' in mensaje.data:
+                accion(",")
             elif 'frente' in mensaje.data:
                 nombrar_objetos()
-            else:
-                pass
+            elif 'vuelta' in mensaje.data:
+                accion("m")
+            elif 'ladra' in mensaje.data:
+                reproducir_sonido()
 
         elif 'nombre' in mensaje.data:
             nombre()
